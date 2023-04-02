@@ -19,7 +19,7 @@
 bl_info = {
     "name" : "TaskMaster",
     "author" : "Synrgy",
-    "version" : (1, 7 ,3),
+    "version" : (1, 7 ,4),
     "blender" : (3, 6, 0),
     "location" : "View3d > Tool",
     "warning" : "",
