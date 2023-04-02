@@ -19,7 +19,7 @@
 bl_info = {
     "name" : "TaskMaster",
     "author" : "Synrgy",
-    "version" : (1, 7 ,1),
+    "version" : (1, 7 ,2),
     "blender" : (3, 6, 0),
     "location" : "View3d > Tool",
     "warning" : "",
@@ -27,6 +27,7 @@ bl_info = {
     "description" : "Ajoute une list to-do",       
     "category" : "Gestionaire",
 }
+
 
 #_______________________ Imports standard de Python_______________________#
 

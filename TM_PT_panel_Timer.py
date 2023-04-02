@@ -5,6 +5,18 @@ import time
 import aud
 from bpy.props  import BoolProperty ,FloatProperty
 import os
+import bpy.utils.previews
+
+
+preview_collections = {}
+pcoll = bpy.utils.previews.new()
+preview_collections["main"] = pcoll
+my_icons_dir = os.path.join(os.path.dirname(__file__), "icons")
+for icon_name in os.listdir(my_icons_dir):
+    if icon_name.endswith(".png"):
+        pcoll.load(icon_name[:-4], os.path.join(my_icons_dir, icon_name), 'IMAGE')
+
+
 bpy.types.Scene.is_chrono = BoolProperty(name="Chrono?", default=False)
 
 
@@ -30,15 +42,15 @@ class TM_PT_Timer_Panel(bpy.types.Panel):
         row = layout.row()
         if len(list_timers) <= 0:
             col = layout.column(align=True)
-            col.operator("tm.add_timer", icon='ADD', text="")   
+            col.operator("tm.add_timer", text="Add Timer", icon_value=pcoll["play1"].icon_id)
         else:
             col = row.column(align=True)
             col.template_list("TM_UL_ListChrono","", context.scene, "my_list_timer", context.scene, "list_index_timer", type='DEFAULT', rows=3)
             col = row.column(align=True)
-            col.operator("tm.play_timer", icon='PLAY', text="")
-            col.operator("tm.reset_timer", icon='SNAP_FACE', text="")
-            col.operator("tm.add_timer", icon='ADD', text="")
-            col.operator("tm.remove_timer", icon='REMOVE', text="")
+            col.operator("tm.play_timer", text="", icon_value=pcoll["play1"].icon_id)
+            col.operator("tm.reset_timer",text="", icon_value=pcoll["refresh1"].icon_id)
+            col.operator("tm.add_timer", text="", icon_value=pcoll["plusblack1"].icon_id)
+            col.operator("tm.remove_timer", text="", icon_value=pcoll["minusblack1"].icon_id)
        
 class TM_OT_AddTimer(bpy.types.Operator):
     bl_idname = "tm.add_timer"
