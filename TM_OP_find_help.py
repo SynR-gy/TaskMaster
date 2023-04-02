@@ -15,6 +15,6 @@ class TM_OP_FindHelp(bpy.types.Operator):
     bl_label = 'How to find help'
 
     def execute(self, context):
-        url = "https://github.com/synnrgy/Task_Master_Wiki/wiki"
+        url = "https://github.com/SynR-gy/TaskMaster/wiki"
         webbrowser.open(url)
         return {'FINISHED'}
